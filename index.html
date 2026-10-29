@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>HAIPAPA — AI Style Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">H</span><span>HAIPAPA<small>AI STYLE CONSULTANT</small></span></a>
+      <span class="beta">AI BARBER STUDIO</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> PERSONAL HAIR ANALYSIS</div>
+        <h1>Temukan gaya rambut<br><em>yang paling cocok.</em></h1>
+        <p>Analisis bentuk wajah, kenali karakter rambut, dan lihat simulasi haircut realistis sebelum duduk di kursi barber.</p>
+      </section>
+
+      <section class="upload-panel panel" id="uploadPanel">
+        <div class="section-heading"><div><span class="step">01</span><h2>Foto pelanggan</h2></div><span class="muted">JPG · PNG · WEBP · Maks. 3 MB</span></div>
+        <label class="dropzone" id="dropzone" for="photoInput">
+          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp">
+          <span class="upload-icon">↑</span>
+          <strong id="uploadTitle">Pilih atau jatuhkan foto di sini</strong>
+          <span id="uploadSub">Gunakan foto wajah dari depan, pencahayaan jelas.</span>
+          <img id="photoPreview" alt="Pratinjau foto pelanggan" hidden>
+          <span class="choose-btn">Pilih foto</span>
+        </label>
+        <div class="privacy-note">Foto akan dikirim ke OpenAI API untuk analisis dan simulasi. Gunakan hanya foto pelanggan yang sudah memberikan persetujuan.</div>
+        <button class="primary-btn" id="analyzeBtn" disabled>Analisis wajah <span>→</span></button>
+      </section>
+
+      <section id="results" hidden>
+        <div class="result-top">
+          <div><div class="eyebrow"><span class="dot"></span> ANALYSIS REPORT</div><h2>Hasil analisis</h2></div>
+          <button class="ghost-btn" id="newBtn">＋ Analisis baru</button>
+        </div>
+        <div class="report-grid">
+          <article class="panel face-panel">
+            <div class="section-heading"><div><span class="step">02</span><h3>Bentuk muka</h3></div><span class="tag">AI ESTIMATE</span></div>
+            <div id="faceBars" class="face-bars"></div>
+            <div class="analysis-block"><h4>Analisis Bentuk Muka</h4><p id="faceAnalysis"></p><h4>Rekomendasi potongan</h4><p id="haircutAdvice"></p></div>
+          </article>
+          <article class="panel traits-panel">
+            <div class="section-heading"><div><span class="step">03</span><h3>Karakter rambut</h3></div></div>
+            <div class="trait"><span class="trait-icon">⌁</span><div><h4>Analisis Garis Rambut</h4><p id="hairline"></p></div></div>
+            <div class="trait"><span class="trait-icon">〰</span><div><h4>Analisis Jenis Rambut</h4><p id="hairType"></p></div></div>
+            <div class="quality-note"><strong>Kualitas foto</strong><p id="photoQuality"></p></div>
+          </article>
+        </div>
+
+        <div class="recommend-heading"><div><span class="step">04</span><div><h2>Rekomendasi Haircut</h2><p>Empat gaya pilihan berdasarkan analisis pelanggan.</p></div></div><span class="tag">PERSONALIZED</span></div>
+        <div id="recommendations" class="recommendations"></div>
+
+        <section class="panel tryon-panel">
+          <div class="section-heading"><div><span class="step">05</span><h2>Virtual haircut</h2></div><span class="tag">PHOTO REALISTIC</span></div>
+          <p class="muted">Pilih gaya untuk membuat simulasi pada foto pelanggan. Setiap simulasi menggunakan kredit API gambar.</p>
+          <div id="tryonGrid" class="tryon-grid"><div class="empty-state">Pilih salah satu rekomendasi di atas untuk membuat simulasi.</div></div>
+        </section>
+
+        <section class="panel save-panel">
+          <div><span class="step">06</span><h2>Simpan konsultasi</h2><p>Data tersimpan di browser perangkat ini. Cetak atau simpan sebagai PDF untuk capster.</p></div>
+          <div class="save-actions"><button class="secondary-btn" id="saveBtn">Simpan di perangkat</button><button class="primary-btn" id="printBtn">Cetak / PDF <span>↗</span></button></div>
+        </section>
+      </section>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <footer><span>HAIPAPA © 2026</span><span>BUILT FOR BETTER HAIRCUT DECISIONS</span></footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
