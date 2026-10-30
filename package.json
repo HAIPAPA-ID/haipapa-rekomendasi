@@ -1,0 +1,16 @@
+{
+  "name": "haipapa-ai-style-consultant",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "openai": "^5.20.0"
+  },
+  "devDependencies": {
+    "vercel": "^48.0.0"
+  }
+}
