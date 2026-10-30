@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       model: process.env.OPENAI_IMAGE_MODEL || "gpt-image-2",
       image: imageFile,
       prompt: `Edit foto pelanggan ini untuk virtual haircut HAIPAPA. Gaya rambut yang diminta: ${styleName}. ${prompt}. WAJIB: pertahankan wajah dan identitas orang yang sama, bentuk wajah, mata, hidung, mulut, telinga, warna kulit, ekspresi, pose, sudut kamera, pakaian, latar belakang, dan pencahayaan. Ubah hanya rambut dan detail potongan rambut. Hasil harus fotorealistis seperti foto kamera profesional barbershop, helai rambut alami, garis rambut masuk akal, tekstur dan bayangan realistis. Jangan menambahkan teks, watermark, kolase, atau orang lain.`,
-      size: "512x512",
+      size: "1024x1024",
       quality: "low",
       output_format: "jpeg"
     });
